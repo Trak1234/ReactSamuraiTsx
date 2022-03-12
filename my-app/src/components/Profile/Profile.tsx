@@ -1,24 +1,23 @@
 import React from 'react';
+import prof from "./Profile.module.css";
+import MyPost from "./MyPosts/MyPost";
+import ProfileInfo from "./ProfileInfo/ProfileInfo";
+
+
+const PostMassive = [
+    {id:1, post:'hi, how are you ?'},
+    {id:2, post:'It`s me friends'}
+]
+
 
 const Profile = () => {
     return (
 
-            <div className='content'>
-                <div>
-                    <img src="https://travelinlife.ru/uploads/666/f55a5caf829219ce190db57b7c7dc763.jpg"/>
-                </div>
-                <div>ava+desr</div>
+            <div className={prof.main}>
+                <ProfileInfo/>
+                <MyPost posts={PostMassive}/>
 
-                <div>MyPosts
 
-                    <div>New Posts</div>
-                    <div>
-                        <div>post1</div>
-                        <div>post2</div>
-                        <div>post3</div>
-                    </div>
-
-                </div>
 
 
             </div>

@@ -13,28 +13,10 @@
     grid-gap: 10px;
 }
 
-.header{
-    grid-area: h ;
-    background-color: greenyellow;
-}
-
-.header img{
-    width: 20px;
-}
-
-
-.Nav{
-    grid-area: n;
-    background-color: red;
-}
-
-.content {
+.app-wrapper-grid {
     grid-area:c;
     background-color: tan;
-
 }
 
-.content img{
-    width: 100%;
-    height: 100%;
-}
+
+

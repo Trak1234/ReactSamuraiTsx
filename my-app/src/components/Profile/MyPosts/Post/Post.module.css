@@ -1,0 +1,15 @@
+
+
+.item {
+    color: black;
+}
+
+.item.active {
+    color: red;
+}
+
+.img1 {
+    height:80px;
+    width: 80px ;
+    border-radius: 50%;
+}
