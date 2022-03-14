@@ -4,18 +4,28 @@ import MyPost from "./MyPosts/MyPost";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
 
-const PostMassive = [
-    {id:1, post:'hi, how are you ?'},
-    {id:2, post:'It`s me friends'}
-]
 
 
-const Profile = () => {
+export type PostsProfType = {
+    id: number
+    post: string
+
+}
+
+export type ProfPostsType = Array<PostsProfType>
+
+type ProfArrType = {
+    postsApp: ProfPostsType
+}
+
+
+
+const Profile = (props:ProfArrType) => {
     return (
 
             <div className={prof.main}>
                 <ProfileInfo/>
-                <MyPost posts={PostMassive}/>
+                <MyPost posts={props.postsApp}/>
 
 
 

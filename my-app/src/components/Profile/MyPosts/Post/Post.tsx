@@ -3,7 +3,10 @@ import post from "./Post.module.css";
 import Like from "./Like";
 
 
-type PostPropsType = {message: string}
+type PostPropsType = {
+    message: string
+
+}
 
 
 const Post = (props:PostPropsType) => {
