@@ -1,6 +1,7 @@
 import React from 'react';
 import dialog from "./Dialogs.module.css";
 import {NavLink} from "react-router-dom";
+import {DialogsPageType, MessagesPageType} from "../../Redux/State";
 
 
 const DialogItem = (props:any) => {
@@ -15,25 +16,10 @@ const MessageItem = (props:any) => {
     )
 }
 
-export type DialogType = {
-    id: number
-    name:string
-
-}
-
-export type DialogProps = Array<DialogType>
-
-export type MessageType = {
-    id: number
-    message:string
-
-}
-
-export type MessageProps = Array<MessageType>
 
 export type  PropsDialog = {
-    DalogsApp:DialogProps
-    MessageApp: MessageProps
+    dialogs: DialogsPageType
+    messages: MessagesPageType
 }
 
 
@@ -41,11 +27,11 @@ export type  PropsDialog = {
 
 const Dialogs = (props:PropsDialog) => {
 
-    let DialogElement = props.DalogsApp.map((d)=> {
+    let DialogElement = props.dialogs.map((d)=> {
         return <DialogItem id={d.id} name={d.name}/>
     });
 
-    let MessageElement = props.MessageApp.map(m => <MessageItem massage={m.message}/> )
+    let MessageElement = props.messages.map(m => <MessageItem massage={m.message}/> )
 
     return (
 

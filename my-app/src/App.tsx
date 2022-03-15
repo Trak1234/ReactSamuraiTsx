@@ -9,38 +9,15 @@ import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 import dialog from "./components/Dialogs/Dialogs.module.css";
+import {StateType} from "./Redux/State";
 
 
 
-export type AppType = Array<AppPost>
-
-export type AppPost = {
-    id: number
-    post: string
-
-}
-export type DialogAppType = {
-    id: number
-    name:string
-}
-
-export type MessageTypeProps = {
-    id:number
-    message:string
-
-}
-
-export type DialogProps = Array<DialogAppType>
-
-
-export type MessageType = Array<MessageTypeProps>
 
 
 
 type PostArrType = {
-    posts: AppType
-    dialogApp: DialogProps
-    messageApp: MessageType
+    state:StateType
 }
 
 
@@ -55,8 +32,10 @@ const App = (props:PostArrType) => {
                 <Nabvar/>
                 <div className='app-wrapper-grid'>
                     <Routes>
-                        <Route path='/message/*' element={<Dialogs DalogsApp={props.dialogApp} MessageApp={props.messageApp} />}/>
-                        <Route path='/profile' element={<Profile postsApp={props.posts} />}/>
+                        <Route path='/message/*' element={
+                            <Dialogs dialogs={props.state.dialogPage.dialogsPage} messages={props.state.dialogPage.messagesPage} />
+                        }/>
+                        <Route path='/profile' element={<Profile postsApp={props.state.profilePage.postsPage} />}/>
                         <Route path='/news' element={<News/>}/>
                         <Route path='/music' element={<Music/>}/>
                         <Route path='/settings' element={<Settings/>}/>
