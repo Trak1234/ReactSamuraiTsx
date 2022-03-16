@@ -3,7 +3,7 @@ import Mp from "./MyPost.module.css";
 import Post from "./Post/Post";
 
 
-
+let postvalue = React.createRef()
 
 export type MyPostProps = {
     id: number
@@ -29,7 +29,7 @@ const MyPost = (props:MyPropsPost) => {
                 <h3>MyPosts</h3>
                 <div>
                     <div><textarea></textarea></div>
-                    <div><button>Add Post</button></div>
+                    <div><button onClick={()=> {alert('Hi')}}>Add Post</button></div>
 
                 </div>
                 <div className={Mp.posts}>
