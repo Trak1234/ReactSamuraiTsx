@@ -3,7 +3,7 @@ import Mp from "./MyPost.module.css";
 import Post from "./Post/Post";
 
 
-let postvalue = React.createRef()
+
 
 export type MyPostProps = {
     id: number
@@ -17,7 +17,18 @@ type MyPropsPost = {
     posts: MyPostsArr
 }
 
+
+
 const MyPost = (props:MyPropsPost) => {
+
+    let postvalue = React.createRef<HTMLTextAreaElement>();
+
+    let Click = () => {
+        if (!!postvalue.current?.value) {
+            let text = postvalue.current.value
+            return alert(text)
+        }
+    }
 
 
         let PostElement = props.posts.map(p=> <Post message={p.post}/>)
@@ -28,8 +39,8 @@ const MyPost = (props:MyPropsPost) => {
             <div className={Mp.bodypost}>
                 <h3>MyPosts</h3>
                 <div>
-                    <div><textarea></textarea></div>
-                    <div><button onClick={()=> {alert('Hi')}}>Add Post</button></div>
+                    <div><textarea ref={postvalue}></textarea></div>
+                    <div><button onClick={()=> {Click}}>Add Post</button></div>
 
                 </div>
                 <div className={Mp.posts}>
