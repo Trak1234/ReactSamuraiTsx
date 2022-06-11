@@ -1,6 +1,7 @@
 import React from 'react';
 import Mp from "./MyPost.module.css";
 import Post from "./Post/Post";
+import {AddNewPost} from "../../../Redux/State";
 
 
 
@@ -15,6 +16,8 @@ export type MyPostsArr = Array<MyPostProps>
 
 type MyPropsPost = {
     posts: MyPostsArr
+    funcPost:(props:string) => void
+
 }
 
 
@@ -25,9 +28,15 @@ const MyPost = (props:MyPropsPost) => {
 
     let Click = () => {
         if (!!postvalue.current?.value) {
-            let text = postvalue.current.value
-            return alert(text)
+
+            let text  = postvalue.current.value
+            props.funcPost(text)
+            postvalue.current.value =''
+
+
+
         }
+
     }
 
 
@@ -40,7 +49,7 @@ const MyPost = (props:MyPropsPost) => {
                 <h3>MyPosts</h3>
                 <div>
                     <div><textarea ref={postvalue}></textarea></div>
-                    <div><button onClick={()=> {Click}}>Add Post</button></div>
+                    <div><button onClick={ Click }>Add Post</button></div>
 
                 </div>
                 <div className={Mp.posts}>

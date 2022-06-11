@@ -10,10 +10,27 @@ const DialogItem = (props:any) => {
     )
 }
 
+
+
+
+
 const MessageItem = (props:any) => {
+
+    let  valuebutton = React.createRef<HTMLTextAreaElement>();
+
+    let MessageButton = () => {
+        if (!!valuebutton.current?.value) {
+            let text = valuebutton.current.value
+            return alert(text)
+        }
+    }
+
     return (
-        <div className={dialog.message}>{props.massage}</div>
-    )
+       <div> <div className={dialog.message}>{props.massage}</div>
+        <div className={dialog.texta}><textarea ref={valuebutton}></textarea></div>
+        <div><button onClick={MessageButton} >Ответ</button></div>
+        </div>
+           )
 }
 
 
@@ -40,9 +57,11 @@ const Dialogs = (props:PropsDialog) => {
     <div className={dialog.main}>
         <div className={dialog.name}>
             {DialogElement}
+
         </div>
         <div className={dialog.messageMain}>
             {MessageElement}
+
 
 
         </div>

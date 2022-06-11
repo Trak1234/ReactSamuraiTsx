@@ -6,19 +6,14 @@ import reportWebVitals from './reportWebVitals';
 import dialog from "./components/Dialogs/Dialogs.module.css";
 import {NavLink} from "react-router-dom";
 import State from "./Redux/State";
+import {AddNewPost} from "./Redux/State";
+import {renderEntireFree} from "./render";
 
 
 
 
 
-
-ReactDOM.render(
-  <React.StrictMode>
-
-    <App state={State} />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+renderEntireFree(State);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

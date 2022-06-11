@@ -11,6 +11,12 @@
 
 }
 
+.texta textarea {
+    width: 100px;
+    height: 40px;
+}
+
+
 .item {
     color: black;
 }

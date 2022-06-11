@@ -9,20 +9,19 @@ import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 import dialog from "./components/Dialogs/Dialogs.module.css";
-import {StateType} from "./Redux/State";
-
-
-
-
+import {PropsAddNewPost, StateType} from "./Redux/State";
+import {AddNewPost} from "./Redux/State";
+import {State} from "./render";
 
 
 type PostArrType = {
-    state:StateType
+    state: State
+    AddNewPost: (props:string) => void
+
 }
 
 
-
-const App = (props:PostArrType) => {
+const App = (props: PostArrType) => {
     return (
         <div className="app-wrapper">
 
@@ -33,9 +32,15 @@ const App = (props:PostArrType) => {
                 <div className='app-wrapper-grid'>
                     <Routes>
                         <Route path='/message/*' element={
-                            <Dialogs dialogs={props.state.dialogPage.dialogsPage} messages={props.state.dialogPage.messagesPage} />
+                            <Dialogs dialogs={props.state.dialogPage.dialogsPage}
+                                     messages={props.state.dialogPage.messagesPage}/>
                         }/>
-                        <Route path='/profile' element={<Profile postsApp={props.state.profilePage.postsPage} />}/>
+                        <Route path='/profile'
+                               element={<Profile
+                                   postsApp={props.state.profilePage.postsPage}
+
+                                   AddPost = {props.AddNewPost}
+                                   />}/>
                         <Route path='/news' element={<News/>}/>
                         <Route path='/music' element={<Music/>}/>
                         <Route path='/settings' element={<Settings/>}/>

@@ -1,4 +1,5 @@
 import React from 'react';
+import {renderEntireFree} from "../render";
 
 export let State: StateType = {
     profilePage: {
@@ -26,10 +27,27 @@ export let State: StateType = {
             {id: 6, message: 'How are you ?'},
         ]
     }
+
 }
 
 export default State;
 
+export let AddNewPost  = (props:string) => {
+
+    let NewPost = {
+        id: 3,
+        post: props
+    }
+    State.profilePage.postsPage.push(NewPost);
+    renderEntireFree(State);
+
+}
+
+
+
+export type PropsAddNewPost = {
+    AddNewPost:() => void
+}
 
 export type PostType = {
     id: number
@@ -38,12 +56,12 @@ export type PostType = {
 
 export type DialogType = {
     id: number
-    name:string
+    name: string
 }
 
 export type MessageType = {
-    id:number
-    message:string
+    id: number
+    message: string
 }
 
 export type PostsPageType = PostType[]
@@ -53,13 +71,13 @@ export type DialogsPageType = Array<DialogType>
 export type MessagesPageType = Array<MessageType>
 
 
-
 export type StateType = {
     profilePage: {
-        postsPage:PostsPageType
+        postsPage: PostsPageType
     }
     dialogPage: {
         dialogsPage: DialogsPageType
         messagesPage: MessagesPageType
     }
+
 }
